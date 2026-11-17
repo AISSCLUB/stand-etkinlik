@@ -1,9 +1,10 @@
-# AISS Club — İnteraktif Stant / التسليم
+# AISS Club — Dark Edition + Stand Console
 
-## Hızlı başlangıç
+Üsküdar Üniversitesi AI & Smart Systems Club interaktif stant sitesi. TR / EN / AR, bağımlılıksız statik dağıtım, Supabase veri kaydı ve yetkili görevli paneli.
 
-Kurulum veya ücretli API gerekmez. `index.html` dosyasını açarak etkinlikleri deneyebilirsiniz.
-Paylaşımlı kullanım / dağıtım için Node.js 18+ ile proje klasöründe:
+## Yerel çalışma
+
+Node.js 18+ ve isteğe bağlı Python ile proje klasöründe:
 
 ```powershell
 npm.cmd test
@@ -11,92 +12,118 @@ npm.cmd run build
 py -m http.server 8080 --directory dist
 ```
 
-Tarayıcı: http://localhost:8080
-Python yoksa `dist` klasörünü mevcut statik sunucunuzda yayınlayın. `npm install` gerekmiyor; çalışma bağımlılığı yok.
-`dist/` hazır dağıtım kopyasıdır. Kaynak dosyaları değiştirdikten sonra yeniden build alın.
-Bu teslim canlı bir adrese yayımlanmadı ve herhangi bir Git deposuna commit/push yapılmadı.
+Ziyaretçi sitesi: http://localhost:8080
+Görevli paneli: http://localhost:8080/admin.html
 
-## Yapılanlar
+`npm install` gerekmez. Fonts ve görseller yereldir. Kaynak değişince `npm.cmd run build` yeniden çalıştırılmalıdır.
 
-- Logo korunarak krem / koyu yeşil / sarı renklerle yeni, sade ve mobil uyumlu tasarım.
-- Türkçe, English, العربية. Arapça RTL; kod blokları LTR. Dil değişiminde cevaplar korunur.
-- Birbirinden bağımsız 5 çoktan seçmeli çıktı sorusu + 5 kolay kod tamamlama sorusu.
-- C, Python, C++, C#, Java. Her dilin gerçek sözdizimi kullanılır; ilerleme dil ve moda göre ayrıdır.
-- Kod tamamlama boşlukları ve son noktalı virgülü tolere eder; belirli eşdeğer başlangıç ifadeleri kabul edilir. Sınırsız tekrar ve ipuçları vardır.
-- Genel amaçlı kod çalıştırıcısı / derleyici YOKTUR. Tam programlar yerine `___` boşluğu doldurulur. Kullanıcıya çalıştırma veya derleme iddiası gösterilmez.
-- Seçili moddaki 5 soru basılabilir; cevap anahtarı `questions.js` içinde.
-- 7 rastgele AI görevi, 2 dakikalık durdurulabilir sayaç, prompt kopyalama, ChatGPT bağlantısı ve sonuç alanı. Süre dolunca gönderim engellenmez.
-- Fikir panosu gerçek kayıtlardan yüklenir; sahte öğrenci, oy veya başarı sayısı yoktur. Yeni fikirler onay bekler.
-- e-SKS resmî bağlantısı ve o bağlantıya ait gerçek QR. Bu QR üyelik kartı veya hediye doğrulama kodu değildir.
-- Sonraki katılımcı düğmesi mevcut oturumun cevaplarını ve metinlerini temizler. İlerleme yalnızca bellekte tutulur; sayfa yenilenince silinir. Yalnızca dil tercihi localStorage’a yazılır.
-- Önceki sahte üye/QR/görevli ekranları dağıtımda ilgili yeni sayfalara yönlenir. Gerçek personel kimlik doğrulaması olmadan açık yönetici ekranı sunulmaz.
+## Vercel — mevcut repo düzeni
 
-## Supabase bağlantısı — canlı bağlantı hazır
+| Alan | Değer |
+| --- | --- |
+| Repository | AISSCLUB/stand-etkinlik |
+| Root Directory | kul-stand |
+| Framework | Other |
+| Build Command | node build.mjs |
+| Output Directory | dist |
+| Install Command | boş |
 
-AISSCLUB's Org2 içinde yeni **AISS Stand** projesi oluşturuldu; mevcut kulüp projesi değiştirilmedi.
+`vercel.json` bu ayarları içerir. Bu teslimde commit/push veya production deployment yapılmadı. Düzenleme başlangıcı: `b650a660f6a2b7052d301dcb82a44bf1160b3482`.
 
-- Proje referansı: `kwjdotstwoneobofqtqv`
-- Bölge: `eu-central-1`
-- API adresi: https://kwjdotstwoneobofqtqv.supabase.co
-- `config.js` yeni projenin public publishable anahtarına bağlıdır. Secret / service_role anahtarı kullanılmaz.
-- SQL şeması uygulandı; üç tabloda RLS açık. İletişim, fikir ve sonuç ekleme gerçek API üzerinden doğrulandı.
-- İletişim formunda isim/e-posta kullanım amacı ve açık onay bulunur. Onaylı kurumsal aydınlatma metni varsa `privacyUrl` alanına eklenebilir.
-- `vercel.json` hazır. Vercel yayını AISS hesabına giriş beklediğinden **henüz yapılmadı**. InternMatch hesabında proje oluşturulmadı.
-- Vercel ayarları: Framework Other, Build Command `node build.mjs`, Output Directory `dist`, Install Command boş.
-- `clubWebsite` ve `instagramUrl` alanları gerçek hesaplar sağlanana kadar boş tutulur.
+## Görsel yenileme
 
-Veriler:
+- Kömür siyahı yüzeyler, sınırlı sarı/yeşil vurgu, büyük editoryal başlıklar.
+- Orijinal geometrik SVG, bağlantı çizgileri, imlece tepki, kart etkileşimleri, kaydırmada görünür olma ve yumuşak sayfa girişleri.
+- Başlangıç, Code Challenge, AI Mission, fikir panosu, kayıt, mobil menü, footer ve admin giriş/panel ekranları aynı tasarım sisteminde.
+- Sistem hareket azaltma tercihi ve kullanıcı için hareket durdurma düğmesi.
+- Manrope, Space Grotesk, Noto Sans Arabic yerel font dosyaları; OFL lisansları `assets/fonts/` içinde.
+- Gerçek kulüp logosu korunur. Uydurma katılımcı, istatistik veya kulüp fotoğrafı yoktur.
 
-| Tablo | İçerik | Ziyaretçi yetkisi |
+İlham kaynakları (yerleşim ve etkileşim yaklaşımı; tasarım/görsel kopyası değildir):
+https://namethatui.com/styles
+https://namethatui.com/
+https://recent.design/i/1of4fz4-dirt
+https://recent.design/i/o635a0e-research-lab-brand-identity
+
+## Ziyaretçi özellikleri
+
+- 5 mini test / 5 kolay kod tamamlama, birbirinden bağımsız.
+- C, Python, C++, C#, Java; dil ve mod skorları ayrıdır.
+- Boşluk / son noktalı virgül toleransı ve sınırlı eşdeğer yanıtlar. Kod çalıştırılmaz veya derlenmez.
+- 7 AI Mission, 2 dakika önerilen süre, duraklatma, devam, prompt kopyalama ve sonuç paylaşımı.
+- Onaydan sonra yayımlanan isimsiz fikirler.
+- e-SKS bağlantısı ve gerçek QR. Resmî üyelik / otomatik üniversite veri aktarımı yapılmaz.
+- İsteğe bağlı iletişim onayı ile ad, e-posta ve bölüm kaydı.
+- Sonuç paylaşımından sonra görevliye gösterilecek 8 karakterlik kayıt numarası.
+- Sonraki katılımcı düğmesi cevapları ve metinleri temizler. Ziyaretçi sonuçları sayfa belleğindedir; yenileme ile silinir. Dil/hareket tercihleri dışında kalıcı tarayıcı verisi tutulmaz.
+
+## Supabase
+
+Organizasyon: **AISSCLUB's Org2**
+Proje: **AISS Stand**
+Referans: `kwjdotstwoneobofqtqv`
+API: https://kwjdotstwoneobofqtqv.supabase.co
+
+`config.js` sadece public publishable anahtar içerir. Secret/service_role anahtarı yoktur.
+Mevcut projeye `schema.sql` ve `admin.sql` uygulandı. Mevcut kulüp projesine dokunulmadı.
+
+Yeni bir projeye kuruluyorsa önce `supabase/schema.sql`, sonra `supabase/admin.sql` uygulanır. Admin kurulumu sonrası eski `schema.sql` dosyasını tek başına tekrar çalıştırmayın; bu dosya authenticated yetkilerini sıfırlar.
+
+| Veri | Ziyaretçi | Yetkili görevli |
 | --- | --- | --- |
-| stand_contacts | Ad, e-posta, isteğe bağlı bölüm, dil, onay sürümü | Yalnızca ekleme; okuma/güncelleme/silme yok |
-| stand_ideas | Fikir, dil, moderasyon durumu, onay sürümü | Ekleme; yalnızca onaylı fikir metinleri okunur |
-| stand_results | İsimsiz test/kod sonucu veya AI görevi çıktısı | Yalnızca ekleme; sonuçları okuma yok |
+| stand_contacts | Ekleme | Okuma, sayfalama, arama, sayfa CSV |
+| stand_results | Ekleme | Okuma, kayıt numarası ile bulma |
+| stand_ideas | Ekleme; sadece yayımlanmış fikirleri okuma | Okuma; sadece approved alanını güncelleme |
+| stand_gifts | Erişim yok | Okuma; sonuç başına tek teslim kaydı |
+| stand_private.staff | Erişim yok | Doğrudan erişim yok; proje sahibi yönetir |
 
-Her gönderim açık bir onay kutusu gerektirir. Soru ve görev sonuçlarını paylaşmak isteğe bağlıdır.
-İletişim talebi, e-SKS üyeliğinden ayrıdır. İsim/e-posta bilgisi fikir panosuna eklenmez.
-Onay ve tarih alanları sunucuda kısıtlanır. Rastgele UUID, tekrar gönderimde aynı kaydın çoğalmasını önler. Yazma işlemi SELECT gerektirmeyen normal INSERT kullanır; yalnızca aynı birincil anahtarın tekrar gönderimi başarıyla kabul edilir.
-Skorlar tarayıcıdan gelir; ödül, resmî değerlendirme veya kimlik kanıtı için güvenilir sayılmamalıdır.
-Bu stant akışında herkese açık ekleme vardır. İnternette geniş kullanım öncesi sunucu tarafı hız sınırlama / kötüye kullanım önlemlerini ayrıca değerlendirin.
+## İlk görevli hesabı — henüz atanmadı
 
-### Fikir onayı ve verileri görme
+Projedeki Auth kullanıcı sayısı kurulum sırasında **0** idi. Gerçek bir kişinin hesabı veya şifresi tahmin edilmedi; varsayılan admin şifresi oluşturulmadı.
 
-Yetkili ekip Supabase Table Editor’dan kayıtları görür. İncelenen fikir için `approved=true` yapılınca fikir panosunda görünür. `created_at` ve kişisel bilgiler ziyaretçiler tarafından değiştirilemez.
-Bu teslim kullanıcı hesabı, personel paneli, rol yönetimi veya otomatik hediye dağıtım sistemi kurmaz.
+1. Supabase Dashboard → AISS Stand → Authentication → Users → Add user yoluyla gerçek görevli kullanıcısını oluşturun. Şifreyi kullanıcı belirlesin; kod veya GitHub içine koymayın.
+2. Proje sahibi SQL Editor’da aşağıdaki komutu gerçek e-posta ve ad ile çalıştırsın:
 
-### Canlı bağlantı sonrası kabul kontrolü
+```sql
+insert into stand_private.staff(user_id, display_name)
+select id, 'Görevli Adı'
+from auth.users
+where lower(email) = lower('GOREVLININ_EMAIL_ADRESI')
+on conflict(user_id) do update
+set display_name = excluded.display_name;
+```
 
-1. Test bir fikir gönderin; onaylanmadan panoda görünmediğini kontrol edin.
-2. Table Editor’da onaylayın, panoyu yenileyin: fikir görünmeli, HTML metin olarak gösterilmeli.
-3. Test iletişim talebi gönderin; Table Editor’da görünmeli. Publishable anahtarla contact/result tablolarını okumayı deneyince izin verilmemeli.
-4. 5 soruyu tamamlayın ve onay vererek sonucu paylaşın; yalnızca bir sonuç satırı oluşmalı.
-5. Ağ kapalıyken gönderin: başarı yerine hata görünmeli ve yazılan metin korunmalı.
-6. Paylaşımlı cihazda “Sıradaki katılımcı” ile cevapların/metinlerin temizlendiğini kontrol edin.
+3. Sonuçta bir satır oluştuğunu kontrol edin. Görevli `admin.html` üzerinden kendi e-posta/şifresiyle giriş yapar. Kayıtlı olmak tek başına yetki vermez; allowlist kaydı da gerekir.
+4. Yetki iptali için sadece ilgili `stand_private.staff` kaydını kaldırın. Yetki her veri isteğinde veritabanından kontrol edilir; JWT içinde düzenlenebilir kullanıcı metadatasına güvenilmez.
 
-## e-SKS
+## Panelin işlevleri
 
-Doğrulanan genel giriş: https://e-sks.uskudar.edu.tr/
-Üniversitenin platform tanıtımı: https://sks.uskudar.edu.tr/sks-dijital-platformlari
-Öğrenci kulübü modülü tanıtımı: https://uskudar.edu.tr/etkinlik/e-sks-sistemi-sosyal-transkript-modulu-ve-ogrenci-kulupleri-modulu/9303
+- Gerçek kayıtlardan hesaplanan sayılar, son sonuçlar ve fikir kuyruğu.
+- 25 satırlık sunucu sayfalaması; iletişimde ad/e-posta araması.
+- Açık onay penceresiyle fikir yayımlama / yayından kaldırma.
+- Etkinlik sonucuna göre hediye teslimi. Sonuç UUID’si primary key olduğu için aynı kayıt ikinci kez teslim edilemez.
+- Katılımcıdan alınan kısa kayıt numarası veya tam UUID ile sonuç araması.
+- CSV indirme yalnızca görünen iletişim sayfasını kapsar; formül enjeksiyonuna karşı değerler korunur.
+- 30 saniyede bir yenileme; form yazılırken veya onay penceresi açıkken otomatik yenileme bekler.
+- Oturum tokenları sadece bellekte. Sayfa yenileme sonrası tekrar giriş gerekir. 15 dakika hareketsizlikte otomatik çıkış. Çıkışta özel veriler ekrandan hemen temizlenir.
 
-Buton öğrenciyi e-SKS’ye yönlendirir. Öğrenci üniversite hesabıyla giriş yapıp kulübü seçer. Otomatik veri aktarımı, otomatik üyelik veya bu sistemden kayıt onayı ALINMAZ. Böyle bir entegrasyon için SKS’nin sağladığı ve izin verdiği bir API / kulübe özel bağlantı gerekir.
-`config.js` içindeki `sksUrl` değiştirilirse `assets/e-sks-qr.png` hâlâ genel e-SKS girişine gider; kulübe özel QR istenirse bu görsel de yeniden oluşturulmalıdır.
+Hediye sistemi kişi/kimlik/üyelik doğrulaması yapmaz. Kayıtlar isimsizdir; aynı kişinin farklı sonuçlarını birleştirmez. Skor tarayıcıdan geldiğinden resmî değerlendirme kanıtı olarak kullanılmaz.
 
-## Doğrulama
+## Doğrulama ve sınırlar
 
-`npm.cmd test`: 7 otomatik test başarılı: 5 dil × 2 mod × 5 soru yapısı, kabul edilen ifadeler, hatalı / zararlı cevaplar ve 3 dilde anahtar/görev bütünlüğü.
-`npm.cmd run build`: başarılı.
-Tarayıcıda: C’de 5 kod sorusu tamamlandı; test modunun skoru bağımsız kaldı. Python yanıtı, TR/EN/AR geçişi, RTL, AI görevi, sayaç ve e-SKS/QR ekranı denendi. Canlı Supabase API üzerinden contact/idea/result kayıtları oluşturuldu ve SQL ile doğrulandı. Tekrar gönderim, özel verilerin anonim okunamaması, onaysız fikrin gizlenmesi ve geçersiz skorun reddedilmesi test edildi. Sadece bu testlerde oluşturulan kayıtlar silindi; üç tablo da boş bırakıldı. Güvenlik danışmanında bulgu yok. Onaylanmış bir fikrin kamuya yayınlanması testi otomatik onay incelemesi tarafından reddedildiği için yapılmadı. Mobil kırılım CSS’i hazır; gerçek mobil cihaz testi yapılmadı.
-
-Supabase resmî kaynaklar:
-https://supabase.com/docs/guides/api/creating-routes
-https://supabase.com/docs/guides/database/postgres/row-level-security
-https://supabase.com/docs/guides/getting-started/api-keys
+- `npm.cmd test`: **13 test başarılı.** Sorular, toleranslı cevap kontrolü, 3 dil anahtarları, yazma/retry hataları, görevli olmayan hesabın reddi, kullanıcı JWT kullanımı, refresh/logout yarışı, UUID filtreleme, HTML kaçışı ve CSV formül koruması.
+- `npm.cmd run build`: başarılı.
+- Tarayıcıda ana sayfa, Code Challenge, AI Mission, fikir panosu, iletişim/e-SKS ve gerçek admin giriş ekranı kontrol edildi. C yanıtı, TR/EN/AR geçişi, RTL ve hareket kontrolü denendi.
+- Yaklaşık **1348, 539, 337 CSS piksel** genişliklerde görüntülendi. Küçük ekranlar tarayıcı zoom’u ile kontrol edildi; fiziksel telefon testi yapılmadı. Dış sayfa taşması gözlenmedi.
+- Yeni arayüzden gerçek Supabase’ye AI Mission sonucu gönderildi; kayıt numarası alındı, SQL ile doğrulandı. Yalnızca bu test kaydı silindi.
+- Gerçek DB’de authenticated ama allowlist dışı bir kullanıcı bağlamında panel erişimi `false`, özel tabloların okunabilir kayıt sayısı `0` olarak doğrulandı.
+- Supabase security advisor: bulgu yok.
+- Panel içi moderasyon ve hediye etkileşimleri **açıkça QA olarak işaretlenmiş, ağa bağlanmayan geçici fixture** ile tarayıcıda denendi. Fixture dağıtıma dahil değildir. Yetkili gerçek kullanıcı henüz oluşturulmadığı için canlı görevli girişi / moderasyon / hediye yazma testi ilk hesabın atanmasını bekler.
 
 ## بالعربي
 
-المشروع جاهز محلياً للتجربة ومعه نسخة `dist` جاهزة للاستضافة الثابتة. التصميم واللغات والأسئلة والمهام ولوحة الأفكار ومسار التسجيل تم تنفيذها. افتح `index.html` أو شغّل الأوامر أعلاه.
+أُعيد تصميم جميع الواجهات بطابع داكن، مع خطوط محلية وحركات مدروسة ودعم الهاتف والعربية. لوحة الإدارة موجودة في `admin.html` وتعرض طلبات التواصل والأفكار والنتائج وتسليم الهدايا. تم تطبيق صلاحياتها في مشروع النادي الجديد.
 
-تم إنشاء مشروع AISS Stand جديد داخل منظمة النادي وربطه فعلياً. جرى التحقق من الحفظ والصلاحيات وحذف بيانات الاختبار. النشر على Vercel ما زال ينتظر دخول حساب AISS؛ إعدادات النشر مرفقة في vercel.json. لا حاجة لإرسال أي مفتاح سري.
+**المتبقي للتفعيل:** إنشاء حساب الموظف في Supabase Auth وإضافة UUID الخاص به إلى جدول `stand_private.staff` بالأمر أعلاه. لا يوجد حساب افتراضي ولا كلمة مرور موحدة. لا ترسل كلمة المرور بالمحادثة.
 
-رابط وQR التسجيل يفتحان e-SKS الرسمي؛ نقل البيانات تلقائياً إلى الجامعة يحتاج تكاملاً توفره SKS. تم إعداد ملف `PROMPT_REVISED_TR.md` وفيه المتطلبات المصحّحة لصاحب المشروع.
+فك ضغط النسخة الجديدة وانسخ محتويات `kul-stand` إلى نفس المجلد داخل الريبو المحلي، ثم ارفع التعديلات من جهازك. إعداد Root Directory في Vercel يبقى `kul-stand`.

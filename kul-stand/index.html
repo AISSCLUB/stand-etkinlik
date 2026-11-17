@@ -2,17 +2,17 @@
 <html lang="tr" dir="ltr">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#f5f3eb"><meta name="description" content="Üsküdar Üniversitesi AI & Smart Systems Club — interaktif stant, kod soruları ve yapay zekâ görevleri.">
-<title>AISS Club · Birlikte deneyelim</title>
-<link rel="icon" href="assets/logo.jpg"><link rel="stylesheet" href="styles.css">
-<script src="config.js" defer></script><script src="locales.js" defer></script><script src="questions.js" defer></script><script src="app.js" defer></script>
+<meta name="theme-color" content="#111210"><meta name="description" content="Üsküdar Üniversitesi AI & Smart Systems Club. Kodla, keşfet, birlikte üret. İnteraktif stant deneyimine katıl.">
+<title>AISS Club · Merakını harekete geçir</title>
+<link rel="icon" href="assets/logo.jpg"><link rel="stylesheet" href="fonts.css"><link rel="stylesheet" href="styles.css">
+<script src="config.js" defer></script><script src="locales.js" defer></script><script src="questions.js" defer></script><script src="motion.js" defer></script><script src="app.js" defer></script>
 </head>
 <body>
 <a class="skip" href="#main" data-i18n="skip"></a>
-<header class="header"><a class="brand" href="#home"><img src="assets/logo.jpg" alt="AISS Club" width="44" height="44"><span>AISS <b>CLUB</b><small>Üsküdar Üniversitesi</small></span></a>
-<nav aria-label="Main"><a href="#code" data-i18n="code"></a><a href="#mission">AI Mission</a><a href="#board" data-i18n="board"></a></nav>
-<div class="header-actions"><label class="sr-only" for="locale" data-i18n="language"></label><select id="locale"><option value="tr">Türkçe</option><option value="en">English</option><option value="ar">العربية</option></select><a class="button small primary" href="#join" data-i18n="join"></a></div></header>
+<header class="header"><a class="brand" href="#home" aria-label="AISS Club"><img src="assets/logo.jpg" alt="" width="42" height="42"><span>AISS<span class="brand-plus">+</span><small>AI & SMART SYSTEMS CLUB</small></span></a>
+<nav id="main-nav" aria-label="Main"><a href="#code" data-i18n="code"></a><a href="#mission">AI Mission</a><a href="#board" data-i18n="board"></a></nav>
+<div class="header-actions"><label class="sr-only" for="locale" data-i18n="language"></label><select id="locale"><option value="tr">TR</option><option value="en">EN</option><option value="ar">عربي</option></select><a class="button small primary" href="#join"><span data-i18n="join"></span><svg class="link-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19L19 5M5 5h14v14"/></svg></a><button id="menu-toggle" class="menu-toggle" aria-controls="main-nav" aria-expanded="false" data-i18n-aria="menu"><span></span><span></span></button></div></header>
 <main id="main" tabindex="-1"></main>
-<footer><span>Üsküdar Üniversitesi · AI & Smart Systems Club</span><button class="text-button" id="reset" data-i18n="reset"></button></footer>
+<footer><div class="footer-top"><a class="brand" href="#home"><span>AISS<span class="brand-plus">+</span><small>ÜSKÜDAR ÜNİVERSİTESİ</small></span></a><p data-i18n="footerNote"></p><a href="admin.html" class="staff-link" data-i18n="staffPanel"></a></div><div class="footer-wordmark" aria-hidden="true">STAY CURIOUS<span>_</span></div><div class="footer-bottom"><span>AI & Smart Systems Club</span><button class="text-button" id="motion-toggle" aria-pressed="false" data-i18n="motionToggle"></button><button class="text-button" id="reset" data-i18n="reset"></button></div></footer>
 <div id="toast" role="status" aria-live="polite"></div>
 </body></html>
